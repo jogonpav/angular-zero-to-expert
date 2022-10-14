@@ -1,0 +1,23 @@
+<p>listado de Héroes</p>
+
+<!-- ngIf indentifies if an element is undifined, null, '' or false. -->
+<!-- <div *ngIf="heroeBorrado !== '' "> -->
+<div *ngIf="heroeBorrado; else noBorrado">
+  <h3>Héroe Borrado: <small>{{heroeBorrado}}</small></h3>
+</div>
+
+<ng-template #noBorrado>
+  <h3>Noha borrado nada</h3>
+</ng-template>
+
+<button (click)="borrarHeroe()">Borrar</button>
+
+<ul>
+  <li *ngFor="let heroe of heroes; let i = index">
+      {{ i + 1 }} - {{heroe}}
+  </li>
+</ul>
+
+
+
+
