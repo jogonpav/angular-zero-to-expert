@@ -4,7 +4,8 @@
   font-weight: 200;
 }
 
-html, body {
+html,
+body {
 
   background: white;
   margin: 20px;
@@ -32,7 +33,7 @@ button:hover {
   background-color: #3e4144;
 }
 
-button:focus{
+button:focus {
   outline: none;
 }
 
@@ -40,4 +41,17 @@ button:focus{
   padding: 1px;
 }
 
+.row {
+  display: flex;
+}
 
+.col {
+  flex-grow: 1;
+  margin-right: 10px;
+  padding-top: 5px;
+}
+
+input {
+  display: block;
+  margin: 8px;
+}
