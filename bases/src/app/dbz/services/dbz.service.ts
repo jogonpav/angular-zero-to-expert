@@ -17,7 +17,7 @@ export class DbzService {
   ];
 
   get Personajes(): Personaje[]{
-    return [...this._personajes]
+    return [...this._personajes]; //It's important to use operator spread because JS uses varible by reference;
   }
 
   constructor(){}
