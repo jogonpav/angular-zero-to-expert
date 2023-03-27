@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col">
-        <form (ngSubmit)="save(myForm)" #myForm="ngForm" autocomplete="off">
+        <form (ngSubmit)="save()" #myForm="ngForm" autocomplete="off">
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Product</label>
                 <div class="col-sm-9">
@@ -12,9 +12,10 @@
                             ngModel
                             name="product"
                             placeholder="Nombre del producto"
+                            minlength="3"
                             required>
                     <span class="form-text text-danger"
-                        *ngIf="myForm.controls['product']?.invalid && myForm.controls['product']?.touched">
+                        *ngIf="validName()">
                         It should be 3 letters
                     </span>
                 </div>
@@ -26,7 +27,12 @@
                             class="form-control"
                             ngModel
                             name="price"
-                            placeholder="Precio del producto">
+                            placeholder="Precio del producto"
+                            min="0">
+                    <span class="form-text text-danger"
+                    *ngIf="validPrice()">
+                    It should be 0 or higger.
+                    </span>
                 </div>
             </div>
             <div class="mb-3 row">
@@ -43,7 +49,8 @@
             <div class="row">
                 <div class="col">
                     <button type="submit"
-                            class="btn btn-primary float-end">
+                            class="btn btn-primary float-end"
+                            [disabled]="myForm.invalid">
                         Guardar
                     </button>
                 </div>
