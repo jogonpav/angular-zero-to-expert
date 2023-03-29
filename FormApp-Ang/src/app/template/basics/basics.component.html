@@ -42,8 +42,14 @@
                             class="form-control"
                             ngModel
                             name="stocks"
+                            customMin
+                            [minimo]="0"
                             placeholder="Product stocks"
                             required>
+                    <span class="form-text text-danger"
+                        *ngIf="validStocks()">
+                        It should be 0 or higger.
+                    </span>
                 </div>
             </div>
             <div class="row">

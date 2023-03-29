@@ -20,5 +20,8 @@ export class BasicsComponent {
   validPrice (){
     return this.myForm?.controls['price']?.invalid && this.myForm?.controls['price']?.touched
   }
+  validStocks (){
+    return this.myForm?.controls['stocks']?.invalid && this.myForm?.controls['stocks']?.touched
+  }
 
 }
