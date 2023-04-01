@@ -9,9 +9,17 @@ export class BasicsComponent {
 
   @ViewChild('myForm') myForm!:NgForm;
 
+  initForm = {
+    producto: '',
+    price: 0,
+    stocks: 0
+  }
+
   save(){
-    console.log(this.myForm)
-    
+    this.myForm.resetForm({
+      price: 0,
+      stocks: 0
+    })
   }
 
   validName (){
