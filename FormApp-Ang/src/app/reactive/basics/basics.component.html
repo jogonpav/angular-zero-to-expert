@@ -3,17 +3,16 @@
 
 <div class="row">
     <div class="col">
-        <form autocomplete="off" [formGroup]="myForm">
+        <form (ngSubmit)="save()" autocomplete="off" [formGroup]="myForm">
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">Product</label>
                 <div class="col-sm-9">
                     <input type="text"
                             class="form-control"
                             formControlName="name"
-                            placeholder="Nombre del producto"
-                            minlength="3"
-                            required>
-                    <span class="form-text text-danger">
+                            placeholder="Nombre del producto">
+                    <span class="form-text text-danger"
+                            *ngIf="notFieldValid('name')">
                         It should be 3 letters
                     </span>
                 </div>
@@ -24,9 +23,9 @@
                     <input type="number"
                             class="form-control"
                             formControlName="price"
-                            placeholder="Precio del producto"
-                            min="0">
-                    <span class="form-text text-danger">
+                            placeholder="Precio del producto">
+                    <span class="form-text text-danger"
+                            *ngIf="notFieldValid('price')">
                     It should be 0 or higger.
                     </span>
                 </div>
@@ -37,11 +36,9 @@
                     <input type="number"
                             class="form-control"
                             formControlName="stocks"
-                            customMin
-                            [min]="0"
-                            placeholder="Product stocks"
-                            required>
-                    <span class="form-text text-danger">
+                            placeholder="Product stocks">
+                    <span class="form-text text-danger"
+                            *ngIf="notFieldValid('stocks')">
                         It should be 0 or higger.
                     </span>
                 </div>
@@ -49,8 +46,7 @@
             <div class="row">
                 <div class="col">
                     <button type="submit"
-                            class="btn btn-primary float-end"
-                            [disabled]="myForm.invalid">
+                            class="btn btn-primary float-end">
                         Guardar
                     </button>
                 </div>
