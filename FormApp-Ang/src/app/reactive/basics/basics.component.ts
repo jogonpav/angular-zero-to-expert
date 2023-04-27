@@ -33,7 +33,6 @@ export class BasicsComponent implements OnInit {
   }
 
   save() {
-
     if(this.myForm.invalid){
       this.myForm.markAllAsTouched();
       return;

@@ -1,14 +1,13 @@
 <h2>Template: <small>Dinámicos</small></h2>
 <hr>
-<form autocomplite="off">
+<form (ngSubmit)="save()" autocomplite="off" [formGroup]="myForm">
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Name</label>
         <div class="col-sm-9">
             <input class="form-control"
                     placeholder="Person name"
-                    required
-                    name="name">
-            <span class="form-text text-danger">
+                    formControlName="name">
+            <span class="form-text text-danger" *ngIf="notFieldValid('name')">
                     This field is required
             </span>
         </div>
@@ -30,12 +29,9 @@
     <!-- List favourite game -->
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Favourites</label>
-        <div class="col-sm-9">
-            <div class="input-group mb-1">
-                <input 
-                    class="form-control"
-                    required
-                    >
+        <div class="col-sm-9" formArrayName="favourites">
+            <div class="input-group mb-1" *ngFor="let favourite of favouriteArr.controls; let i = index">
+                <input class="form-control" [formControlName]="i">
                 <button class="btn btn-outline-danger" type="button">Delete</button>
             </div>
             
@@ -44,10 +40,17 @@
 
     <div class=" row">
         <div class="col-sm-12">
-            <button type="button" class="btn btn-primary float-end">Save</button>
+            <button type="submit" class="btn btn-primary float-end">Save</button>
         </div>
     </div>
 </form>
+
+
+<span>Valid</span>
+<pre> {{ myForm.valid}}</pre>
+
+<span>Value</span>
+<pre> {{ myForm.value | json }}</pre>
 
 <span> Person </span>
 
