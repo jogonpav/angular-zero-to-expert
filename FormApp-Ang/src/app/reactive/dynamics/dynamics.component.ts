@@ -33,9 +33,11 @@ export class DynamicsComponent {
     //this.favouriteArr.push(this.favouriteNew); //this form is not correct beacause JS uses variables by reference
     //this.favouriteArr.push(new FormControl(this.favouriteNew.value, Validators.required)); //It's necessary to declare the form control variable again
     this.favouriteArr.push(this.fb.control(this.favouriteNew.value, Validators.required)) //this form using FormBuilder
-
     this.favouriteNew.reset();
+  }
 
+  delete(element: number){
+    this.
   }
 
   save() {

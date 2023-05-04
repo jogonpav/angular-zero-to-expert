@@ -32,7 +32,7 @@
         <div class="col-sm-9" formArrayName="favourites">
             <div class="input-group mb-1" *ngFor="let favourite of favouriteArr.controls; let i = index">
                 <input class="form-control" [formControlName]="i">
-                <button class="btn btn-outline-danger" type="button">Delete</button>
+                <button class="btn btn-outline-danger" type="button" (click)="delete(i)">Delete</button>
             </div>
             
         </div>
