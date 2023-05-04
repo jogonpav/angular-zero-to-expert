@@ -1,20 +1,20 @@
 <h2>Template: Switches</h2>
 <hr>
 
-<form>
+<form [formGroup]="myForm" (ngSubmit)="save()">
 
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Gender</label>
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioGender" id="maleOption" 
+                <input class="form-check-input" type="radio" formControlName="gender" id="maleOption" 
                         value="M" required>
                 <label class="form-check-label" for="maleOption">
                   Male
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioGender" id="femaleOption" 
+                <input class="form-check-input" type="radio" formControlName="gender" id="femaleOption" 
                         value="F" required>
                 <label class="form-check-label" for="femaleOption">
                   Female
@@ -32,7 +32,7 @@
                         type="checkbox" 
                         role="switch" 
                         id="flexSwitchCheckChecked"
-                        name="notifications">
+                        formControlName="notifications">
                 <label class="form-check-label" for="flexSwitchCheckChecked">The app would like to send you notification</label>
             </div>
 
@@ -44,7 +44,7 @@
         <div class="col-sm-9">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
-                        name="terms" required>
+                formControlName="terms" required>
                 <label class="form-check-label" for="flexCheckDefault">
                     terms and conditions of use
                 </label>
@@ -54,17 +54,19 @@
 
     <div class="row">
         <div class="col">
-            <button class="btn btn-primary float-end">Save</button>
+            <button type="submit" class="btn btn-primary float-end" [disabled]="myForm.invalid">Save</button>
         </div>
     </div>
 
 </form>
 
 <h5>Form Value</h5>
-<pre></pre>
-<br>
+<pre> {{ myForm.value | json }}</pre>
 
-<h5>Valid</h5>
+<h5>persona</h5>
+<pre>{{ person | json }}</pre>
 
+<span>Valid</span>
+<pre> {{ myForm.valid}}</pre>
 
-<h5></h5>
+<h5>Términos</h5>
