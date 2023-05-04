@@ -36,14 +36,14 @@ export class DynamicsComponent {
     this.favouriteNew.reset();
   }
 
-  delete(element: number){
-    this.
+  delete(element: number) {
+    this.favouriteArr.removeAt(element);
   }
 
   save() {
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
-      return
+      return;
     }
   }
 
