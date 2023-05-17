@@ -39,9 +39,22 @@
             </div>
 
             <div class="row mb-3">
+                <label class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" formControlName="password" laceholder="Password">
+                    <span class="for-text text-danger" *ngIf="fieldInvalid('password')">
+                        Password should be greater than 6 characters
+                    </span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
                 <label class="col-sm-3 col-form-label">Confirm Password</label>
                 <div class="col-sm-9">
-                    <input type="password" class="form-control" placeholder="Confirm password">
+                    <input type="password" class="form-control" formControlName="password2" laceholder="Confirm password">
+                    <span class="for-text text-danger" *ngIf="fieldInvalid('password2')">
+                        Passwords should be the equals
+                    </span>
                 </div>
             </div>
 
@@ -59,6 +72,9 @@
 
 <h2>Form valid: {{ myForm.valid}}</h2>
 
+<h2>FForm errors</h2>
+<pre>{{ myForm.errors | json }}</pre>
+
 <h5>name</h5>
 <pre>{{ myForm.controls['name'].errors | json }}</pre>
 
@@ -67,3 +83,9 @@
 
 <h5>username</h5>
 <pre>{{ myForm.controls['username'].errors | json }}</pre>
+
+<h5>password</h5>
+<pre>{{ myForm.controls['password'].errors | json }}</pre>
+
+<h5>password2  </h5>
+<pre>{{ myForm.controls['password2'].errors | json }}</pre>

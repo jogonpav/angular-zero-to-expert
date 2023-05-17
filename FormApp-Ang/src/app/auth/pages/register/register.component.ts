@@ -15,7 +15,11 @@ export class RegisterComponent implements OnInit {
   myForm: FormGroup = this.fb.group({
     name: ['', [Validators.required, Validators.pattern(this.vs.nameLastNamePatter)]],
     email: ['', [Validators.required, Validators.pattern(this.vs.emailPattern)]],
-    username: ['', [Validators.required, this.vs.cantBeStrider]]
+    username: ['', [Validators.required, this.vs.cantBeStrider]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    password2: ['', [Validators.required]]
+  },{
+    validators: [this.vs.fieldEquals('password', 'password2')]
   }
 
   )
@@ -24,9 +28,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.myForm.reset({
-      name: "José Gonzalo",
+      name: "Jose Gonzalo",
       email: 'test1@email.com',
-      username: 'snipers'
+      username: 'snipers',
     })
   }
 
