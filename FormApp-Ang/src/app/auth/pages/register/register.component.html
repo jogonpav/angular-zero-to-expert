@@ -60,7 +60,7 @@
 
             <div class="row">
                 <div class="col">
-                    <button type="submit" class="btn btn-primary float-end">Create</button>
+                    <button type="submit" class="btn btn-primary float-end" [disabled]="!myForm.valid">Create</button>
                 </div>
             </div>
 
@@ -71,8 +71,13 @@
 </div>
 
 <h2>Form valid: {{ myForm.valid}}</h2>
+<h2>Form invalid: {{ myForm.invalid}}</h2>
 
-<h2>FForm errors</h2>
+<h2>Form Status: {{ myForm.status }}</h2>
+
+<h2>Form Pending: {{ myForm.pending }}</h2>
+<br>
+<h2>Form errors</h2>
 <pre>{{ myForm.errors | json }}</pre>
 
 <h5>name</h5>

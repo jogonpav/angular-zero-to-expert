@@ -19,21 +19,23 @@ export class RegisterComponent implements OnInit {
     username: ['', [Validators.required, this.vs.cantBeStrider]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     password2: ['', [Validators.required]]
-  },{
+  }, {
     validators: [this.vs.fieldEquals('password', 'password2')]
   }
 
   )
 
-  constructor( private fb: FormBuilder, 
-               private vs: ValidatorService,
-               private  emailValidator: EmailValidatorService) { }
+  constructor(private fb: FormBuilder,
+    private vs: ValidatorService,
+    private emailValidator: EmailValidatorService) { }
 
   ngOnInit(): void {
     this.myForm.reset({
       name: "Jose Gonzalo",
       email: 'test1@email.com',
       username: 'snipers',
+      password: '123456',
+      password2: '123456',
     })
   }
 
